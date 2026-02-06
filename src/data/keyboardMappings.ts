@@ -105,7 +105,7 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       {
         key: 'Digit6',
         normal: '6',
-        shift: '\u2018', // Left single quote (')
+        shift: "'", // Single quote
         altgr: '६',
         altgrShift: 'ह्म', // hma conjunct
         finger: 4,
@@ -115,7 +115,7 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       {
         key: 'Digit7',
         normal: '7',
-        shift: '\u2019', // Right single quote (')
+        shift: "'", // Double quote
         altgr: '७',
         altgrShift: '÷', // Division sign
         finger: 4,
@@ -154,8 +154,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'Minus',
-        normal: ';',
-        shift: '.',
+        normal: ';', // Semicolon
+        shift: '.', // Dot
         altgr: 'ञ', // Nya
         altgrShift: 'ञ्', // Nya + Halant
         finger: 7,
@@ -318,8 +318,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'Backslash',
-        normal: '(',
-        shift: ')',
+        normal: '?',
+        shift: ')', // Close bracket
         altgr: 'ऽ', // Avagraha
         altgrShift: 'ॐ', // Om
         finger: 7,
@@ -342,8 +342,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyA',
-        normal: 'ं', // Anusvara
-        shift: 'ा', // AA matra
+        normal: 'ं', // Anusvara (Bindi)
+        shift: 'ा', // AA Matra (आ की मात्रा)
         altgr: 'ह्ण', // hna conjunct
         altgrShift: 'ख़', // Khha (Kha + Nukta)
         finger: 0,
@@ -352,8 +352,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyS',
-        normal: 'े', // E matra
-        shift: 'ै', // AI matra
+        normal: 'े', // E matra (verified: \u0947)
+        shift: 'ै', // AI matra (verified: \u0948)
         altgr: 'भ', // Bha
         altgrShift: 'ष्ट', // shta conjunct
         finger: 1,
@@ -362,8 +362,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyD',
-        normal: 'क', // Ka
-        shift: 'क्', // Ka + Halant
+        normal: 'क', // Ka (verified: \u0915)
+        shift: 'क्', // Half Ka (verified: \u0915\u094D)
         altgr: 'ध', // Dha
         altgrShift: 'ष्ठ', // shtha conjunct
         finger: 2,
@@ -372,8 +372,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyF',
-        normal: 'ि', // I matra
-        shift: 'थ्', // Tha
+        normal: 'ि', // I matra (verified: \u093F)
+        shift: 'थ्', // Half Tha (verified: \u0924\u094D\u0925 -> actually थ् is \u0925\u094D)
         altgr: 'य्', // Ya + Halant
         altgrShift: 'थ', // Tha
         finger: 3,
@@ -382,8 +382,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyG',
-        normal: 'ह', // Ha
-        shift: 'ळ', // Lla
+        normal: 'ह', // Ha (verified: \u0939)
+        shift: 'ळ', // Marathi La (verified: \u0933)
         altgr: 'घ', // Gha
         altgrShift: 'ग्र', // gra conjunct
         finger: 3,
@@ -392,8 +392,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'KeyH',
-        normal: 'ी', // II matra
-        shift: 'भ्', // Bha
+        normal: 'ी', // II matra (verified: \u0940)
+        shift: 'भ्', // Half Bha (verified: \u092D\u094D)
         altgr: 'ीं', // II matra + Anusvara
         altgrShift: 'ञ्च', // nyca conjunct
         finger: 4,
@@ -477,9 +477,9 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       {
         key: 'KeyZ',
         normal: '्र', // Rakar (Halant + Ra) - typed AFTER consonant
-        shift: 'र्', // Reph (Ra + Halant) - typed BEFORE consonant
-        altgr: 'ो', // O matra
-        altgrShift: 'ौ', // AU matra
+        shift: 'र्', // Reph (Ra + Halant) - typed BEFORE consonant, appears above
+        altgr: 'ो', // O matra (disabled)
+        altgrShift: 'ौ', // AU matra (disabled)
         finger: 0,
         hand: 'left',
         label: 'Z',
@@ -556,7 +556,7 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'Period',
-        normal: 'ण्', // Nna + Halant
+        normal: 'ण्', // Half Nna (आधा ण)
         shift: 'झ', // Jha
         altgr: '.',
         altgrShift: 'झ्', // Jha + Halant
@@ -566,8 +566,8 @@ export const REMINGTON_GAIL_LAYOUT: KeyboardLayout = {
       },
       {
         key: 'Slash',
-        normal: 'ध्', // Dha + Halant
-        shift: 'घ्', // Gha + Halant
+        normal: 'ध्', // Half Dha (verified: \u0927\u094D)
+        shift: 'घ्', // Half Gha (verified: \u0918\u094D)
         altgr: '/',
         altgrShift: '?',
         finger: 7,
@@ -1058,7 +1058,7 @@ export const INSCRIPT_LAYOUT: KeyboardLayout = {
       {
         key: 'Semicolon',
         normal: 'च', // Cha
-        shift: 'छ', // Chha
+        shift: 'रू', // Ra + UU matra (roo) - added for consistency with Remington
         altgr: '',
         altgrShift: '',
         finger: 7,
@@ -1272,7 +1272,7 @@ export const INSCRIPT_LAYOUT: KeyboardLayout = {
  * Key: physical key code, Value: KeyMapping
  */
 export const KEY_MAP: Map<string, KeyMapping> = new Map(
-  REMINGTON_GAIL_LAYOUT.rows.flat().map((key) => [key.key, key])
+  REMINGTON_GAIL_LAYOUT.rows.flat().map((key) => [key.key, key]),
 );
 
 /**
@@ -1280,7 +1280,639 @@ export const KEY_MAP: Map<string, KeyMapping> = new Map(
  * Key: physical key code, Value: KeyMapping
  */
 export const INSCRIPT_KEY_MAP: Map<string, KeyMapping> = new Map(
-  INSCRIPT_LAYOUT.rows.flat().map((key) => [key.key, key])
+  INSCRIPT_LAYOUT.rows.flat().map((key) => [key.key, key]),
+);
+
+/**
+ * Remington CBI Keyboard Mapping
+ *
+ * Central Bureau of Investigation / CPCT standard layout for Hindi typing
+ * Used in government exams like CPCT, SSC, CRPF, CISF etc.
+ *
+ * Key differences from Remington GAIL:
+ * - Minor variations in some key positions
+ * - Same general structure as GAIL
+ * - Devanagari numbers on number row (with Shift for symbols)
+ * - Used with Mangal Unicode font
+ */
+export const REMINGTON_CBI_LAYOUT: KeyboardLayout = {
+  name: 'Remington CBI',
+  description: 'CBI/CPCT standard layout for Hindi Unicode typing',
+
+  modifiers: {
+    shift: ['ShiftLeft', 'ShiftRight'],
+    altgr: ['AltRight'],
+  },
+
+  rows: [
+    // ========== NUMBER ROW ==========
+    [
+      {
+        key: 'Backquote',
+        normal: 'ञ',
+        shift: '॰', // Abbreviation sign
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: '`',
+      },
+      {
+        key: 'Digit1',
+        normal: '१',
+        shift: '!',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: '1',
+      },
+      {
+        key: 'Digit2',
+        normal: '२',
+        shift: '/',
+        altgr: '',
+        altgrShift: '',
+        finger: 1,
+        hand: 'left',
+        label: '2',
+      },
+      {
+        key: 'Digit3',
+        normal: '३',
+        shift: 'ः',
+        altgr: '',
+        altgrShift: '',
+        finger: 2,
+        hand: 'left',
+        label: '3',
+      },
+      {
+        key: 'Digit4',
+        normal: '४',
+        shift: '*',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: '4',
+      },
+      {
+        key: 'Digit5',
+        normal: '५',
+        shift: '-',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: '5',
+      },
+      {
+        key: 'Digit6',
+        normal: '६',
+        shift: '\u2018', // Left single quote '
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: '6',
+      },
+      {
+        key: 'Digit7',
+        normal: '७',
+        shift: '\u2019', // Right single quote '
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: '7',
+      },
+      {
+        key: 'Digit8',
+        normal: '८',
+        shift: 'द्ध',
+        altgr: '',
+        altgrShift: '',
+        finger: 5,
+        hand: 'right',
+        label: '8',
+      },
+      {
+        key: 'Digit9',
+        normal: '९',
+        shift: 'त्र',
+        altgr: '',
+        altgrShift: '',
+        finger: 6,
+        hand: 'right',
+        label: '9',
+      },
+      {
+        key: 'Digit0',
+        normal: '०',
+        shift: 'ऋ',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '0',
+      },
+      {
+        key: 'Minus',
+        normal: ';',
+        shift: '.',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '-',
+      },
+      {
+        key: 'Equal',
+        normal: 'ृ',
+        shift: '्',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '=',
+      },
+      {
+        key: 'Backspace',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'Backspace',
+      },
+    ],
+
+    // ========== TOP ROW (QWERTY) ==========
+    [
+      {
+        key: 'Tab',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Tab',
+      },
+      {
+        key: 'KeyQ',
+        normal: 'ु',
+        shift: 'फ',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Q',
+      },
+      {
+        key: 'KeyW',
+        normal: 'ू',
+        shift: 'ॅ',
+        altgr: '',
+        altgrShift: '',
+        finger: 1,
+        hand: 'left',
+        label: 'W',
+      },
+      {
+        key: 'KeyE',
+        normal: 'म',
+        shift: 'म्',
+        altgr: '',
+        altgrShift: '',
+        finger: 2,
+        hand: 'left',
+        label: 'E',
+      },
+      {
+        key: 'KeyR',
+        normal: 'त',
+        shift: 'त्',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'R',
+      },
+      {
+        key: 'KeyT',
+        normal: 'ज',
+        shift: 'ज्',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'T',
+      },
+      {
+        key: 'KeyY',
+        normal: 'ल',
+        shift: 'ल्',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'Y',
+      },
+      {
+        key: 'KeyU',
+        normal: 'न',
+        shift: 'न्',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'U',
+      },
+      {
+        key: 'KeyI',
+        normal: 'प',
+        shift: 'प्',
+        altgr: '',
+        altgrShift: '',
+        finger: 5,
+        hand: 'right',
+        label: 'I',
+      },
+      {
+        key: 'KeyO',
+        normal: 'व',
+        shift: 'व्',
+        altgr: '',
+        altgrShift: '',
+        finger: 6,
+        hand: 'right',
+        label: 'O',
+      },
+      {
+        key: 'KeyP',
+        normal: 'च',
+        shift: 'च्',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'P',
+      },
+      {
+        key: 'BracketLeft',
+        normal: 'ख्',
+        shift: 'क्ष्',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '[',
+      },
+      {
+        key: 'BracketRight',
+        normal: ',',
+        shift: 'द्व',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: ']',
+      },
+      {
+        key: 'Backslash',
+        normal: '(',
+        shift: ')',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '\\',
+      },
+    ],
+
+    // ========== HOME ROW (ASDFGHJKL) ==========
+    [
+      {
+        key: 'CapsLock',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Caps',
+      },
+      {
+        key: 'KeyA',
+        normal: 'ं',
+        shift: 'ा',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'A',
+      },
+      {
+        key: 'KeyS',
+        normal: 'े',
+        shift: 'ै',
+        altgr: '',
+        altgrShift: '',
+        finger: 1,
+        hand: 'left',
+        label: 'S',
+      },
+      {
+        key: 'KeyD',
+        normal: 'क',
+        shift: 'क्',
+        altgr: '',
+        altgrShift: '',
+        finger: 2,
+        hand: 'left',
+        label: 'D',
+      },
+      {
+        key: 'KeyF',
+        normal: 'ि',
+        shift: 'थ्',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'F',
+      },
+      {
+        key: 'KeyG',
+        normal: 'ह',
+        shift: 'ळ',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'G',
+      },
+      {
+        key: 'KeyH',
+        normal: 'ी',
+        shift: 'भ्',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'H',
+      },
+      {
+        key: 'KeyJ',
+        normal: 'र',
+        shift: 'श्र',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'J',
+      },
+      {
+        key: 'KeyK',
+        normal: 'ा',
+        shift: 'ज्ञ',
+        altgr: '',
+        altgrShift: '',
+        finger: 5,
+        hand: 'right',
+        label: 'K',
+      },
+      {
+        key: 'KeyL',
+        normal: 'स',
+        shift: 'स्',
+        altgr: '',
+        altgrShift: '',
+        finger: 6,
+        hand: 'right',
+        label: 'L',
+      },
+      {
+        key: 'Semicolon',
+        normal: 'य',
+        shift: 'रू',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: ';',
+      },
+      {
+        key: 'Quote',
+        normal: 'श्',
+        shift: 'ष्',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: "'",
+      },
+      {
+        key: 'Enter',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'Enter',
+      },
+    ],
+
+    // ========== BOTTOM ROW (ZXCVBNM) ==========
+    [
+      {
+        key: 'ShiftLeft',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Shift',
+      },
+      {
+        key: 'KeyZ',
+        normal: '्र',
+        shift: 'र्',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Z',
+      },
+      {
+        key: 'KeyX',
+        normal: 'ग',
+        shift: 'ग्',
+        altgr: '',
+        altgrShift: '',
+        finger: 1,
+        hand: 'left',
+        label: 'X',
+      },
+      {
+        key: 'KeyC',
+        normal: 'ब',
+        shift: 'ब्',
+        altgr: '',
+        altgrShift: '',
+        finger: 2,
+        hand: 'left',
+        label: 'C',
+      },
+      {
+        key: 'KeyV',
+        normal: 'अ',
+        shift: 'ट',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'V',
+      },
+      {
+        key: 'KeyB',
+        normal: 'इ',
+        shift: 'ठ',
+        altgr: '',
+        altgrShift: '',
+        finger: 3,
+        hand: 'left',
+        label: 'B',
+      },
+      {
+        key: 'KeyN',
+        normal: 'द',
+        shift: 'छ',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'N',
+      },
+      {
+        key: 'KeyM',
+        normal: 'उ',
+        shift: 'ड',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'right',
+        label: 'M',
+      },
+      {
+        key: 'Comma',
+        normal: 'ए',
+        shift: 'ढ',
+        altgr: '',
+        altgrShift: '',
+        finger: 5,
+        hand: 'right',
+        label: ',',
+      },
+      {
+        key: 'Period',
+        normal: 'ण्',
+        shift: 'झ',
+        altgr: '',
+        altgrShift: '',
+        finger: 6,
+        hand: 'right',
+        label: '.',
+      },
+      {
+        key: 'Slash',
+        normal: 'ध्',
+        shift: 'घ्',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: '/',
+      },
+      {
+        key: 'ShiftRight',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'Shift',
+      },
+    ],
+
+    // ========== SPACE BAR ==========
+    [
+      {
+        key: 'ControlLeft',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Ctrl',
+      },
+      {
+        key: 'AltLeft',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 0,
+        hand: 'left',
+        label: 'Alt',
+      },
+      {
+        key: 'Space',
+        normal: ' ',
+        shift: ' ',
+        altgr: '',
+        altgrShift: '',
+        finger: 4,
+        hand: 'left',
+        label: 'Space',
+      },
+      {
+        key: 'AltRight',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'Alt',
+      },
+      {
+        key: 'ControlRight',
+        normal: '',
+        shift: '',
+        altgr: '',
+        altgrShift: '',
+        finger: 7,
+        hand: 'right',
+        label: 'Ctrl',
+      },
+    ],
+  ],
+};
+
+/**
+ * Flattened map of all keys for quick lookup (Remington CBI)
+ * Key: physical key code, Value: KeyMapping
+ */
+export const REMINGTON_CBI_KEY_MAP: Map<string, KeyMapping> = new Map(
+  REMINGTON_CBI_LAYOUT.rows.flat().map((key) => [key.key, key]),
 );
 
 /**
@@ -1288,6 +1920,7 @@ export const INSCRIPT_KEY_MAP: Map<string, KeyMapping> = new Map(
  */
 export const AVAILABLE_LAYOUTS = {
   'remington-gail': REMINGTON_GAIL_LAYOUT,
+  'remington-cbi': REMINGTON_CBI_LAYOUT,
   inscript: INSCRIPT_LAYOUT,
 } as const;
 

@@ -15,6 +15,7 @@ interface VirtualKeyboardProps {
   nextCharacter?: string;
   showFingerGuide?: boolean;
   className?: string;
+  isTutorMode?: boolean;
 }
 
 const KEY_UNIT = '1.8rem'; // try 3.8 → 4.2 → 4.5
@@ -25,50 +26,94 @@ export function VirtualKeyboard({
   nextCharacter,
   showFingerGuide = true,
   className,
+  isTutorMode = false,
 }: VirtualKeyboardProps) {
   // Use context-aware keyboard mapper
   const mapper = useKeyboardMapper();
   const { currentLayout } = mapper;
 
   // Find which key produces the next character
-  const nextKeyInfo = nextCharacter
-    ? mapper.findKeysForCharacter(nextCharacter).find(
-        (info) => info.modifierState === modifierState
-      )
-    : null;
+  const allNextKeyOptions = nextCharacter
+    ? mapper.findKeysForCharacter(nextCharacter)
+    : [];
+
+  // Try to find a key matching current modifier state, otherwise use the first option
+  const nextKeyInfo =
+    allNextKeyOptions.find((info) => info.modifierState === modifierState) ||
+    allNextKeyOptions[0];
 
   const nextKey = nextKeyInfo?.key;
+  const needsShift = nextKeyInfo?.modifierState === 'shift';
+  const needsAltGr =
+    nextKeyInfo?.modifierState === 'altgr' ||
+    nextKeyInfo?.modifierState === 'altgr-shift';
 
   return (
-    <div className={cn('select-none', className)}>
-      {/* Press instruction */}
-      {nextCharacter && nextKey && (
-        <div className="mb-3 text-center text-sm text-gray-600 dark:text-gray-400">
-          Press: <span className="font-bold">{getKeyLabel(nextKey)}</span>
+    <div className={cn('select-none flex flex-col', className)}>
+      {/* Press instruction - Clean flex layout */}
+      {/* {nextCharacter && nextKey && (
+        <div className={`flex-none py-4 text-center ${isTutorMode ? 'text-3xl font-bold text-gray-700 dark:text-gray-300' : 'text-base text-gray-600 dark:text-gray-400'}`}>
+          <span className={isTutorMode ? '' : 'font-medium'}>Press:</span>{' '}
+          <span className={`font-bold ${isTutorMode ? 'text-primary text-4xl' : 'text-primary text-lg'}`}>
+            {needsShift && modifierState !== 'shift' ? 'Shift' : getKeyLabel(nextKey)}
+          </span>
         </div>
-      )}
+      )} */}
 
-      <div className="flex justify-center">
+      {/* Keyboard */}
+      <div className="flex-none flex justify-center mt-15">
         <div className="bg-gray-200 dark:bg-gray-800 p-4 rounded-xl space-y-2">
           {currentLayout.rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
               className="grid gap-1"
               style={{
-                gridTemplateColumns: getGridTemplateForRow(rowIndex, currentLayout.name),
+                gridTemplateColumns: getGridTemplateForRow(
+                  rowIndex,
+                  currentLayout.name,
+                ),
                 gridAutoColumns: KEY_UNIT,
               }}
             >
-              {row.map((keyMapping) => (
-                <Key
-                  key={keyMapping.key}
-                  mapping={keyMapping}
-                  modifierState={modifierState}
-                  isPressed={pressedKeys.has(keyMapping.key)}
-                  isNext={nextKey === keyMapping.key}
-                  showFingerGuide={showFingerGuide}
-                />
-              ))}
+              {row.map((keyMapping) => {
+                // Shift highlighting logic:
+                // 1. If we need shift but haven't pressed it yet, highlight shift keys
+                // 2. If we've pressed shift (modifier state is shift), highlight the actual key
+                const isShiftHighlighted =
+                  needsShift &&
+                  modifierState !== 'shift' &&
+                  (keyMapping.key === 'ShiftLeft' ||
+                    keyMapping.key === 'ShiftRight');
+                const isActualKeyHighlighted =
+                  needsShift &&
+                  modifierState === 'shift' &&
+                  nextKey === keyMapping.key;
+                const isAltGrHighlighted =
+                  needsAltGr && keyMapping.key === 'AltRight';
+
+                // Normal key highlight: only when no modifier needed AND current state is normal
+                const isNormalKeyHighlighted =
+                  !needsShift &&
+                  !needsAltGr &&
+                  nextKey === keyMapping.key &&
+                  modifierState === 'normal';
+
+                return (
+                  <Key
+                    key={keyMapping.key}
+                    mapping={keyMapping}
+                    modifierState={modifierState}
+                    isPressed={pressedKeys.has(keyMapping.key)}
+                    isNext={
+                      isNormalKeyHighlighted || // Normal key (only in normal state)
+                      isShiftHighlighted || // Shift key when shift is needed
+                      isActualKeyHighlighted || // Actual key after shift is pressed
+                      isAltGrHighlighted // AltGr key when needed
+                    }
+                    showFingerGuide={showFingerGuide}
+                  />
+                );
+              })}
             </div>
           ))}
         </div>

@@ -1,0 +1,34 @@
+appId: com.hindityping.cpct
+productName: CPCT Hindi Typing
+copyright: Copyright © 2026
+
+directories:
+  output: release
+  buildResources: resources
+
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+
+asar: true
+
+win:
+  target:
+    - nsis
+  icon: resources/icons/icon.ico
+  artifactName: '${productName}-Setup-${version}.exe'
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  license: resources/installer/license.txt
+  installerIcon: resources/icons/installerIcon.ico
+  uninstallerIcon: resources/icons/icon.ico
+
+publish:
+  provider: github
+  owner: your-github-username
+  repo: cpct-hindi-typing

@@ -53,14 +53,15 @@ export function findKeyMapping(key: string): KeyMapping | undefined {
 export function getModifierState(pressedKeys: Set<string>): ModifierState {
   const hasShift =
     pressedKeys.has('ShiftLeft') || pressedKeys.has('ShiftRight');
-  const hasAltGr = pressedKeys.has('AltRight');
+  // AltGr is disabled - ignore it completely
+  // const hasAltGr = pressedKeys.has('AltRight');
 
-  if (hasShift && hasAltGr) {
-    return 'altgr-shift';
-  }
-  if (hasAltGr) {
-    return 'altgr';
-  }
+  // if (hasShift && hasAltGr) {
+  //   return 'altgr-shift';
+  // }
+  // if (hasAltGr) {
+  //   return 'altgr';
+  // }
   if (hasShift) {
     return 'shift';
   }
@@ -270,14 +271,15 @@ export function useKeyboardMapper() {
     getModifierState(pressedKeys: Set<string>): ModifierState {
       const hasShift =
         pressedKeys.has('ShiftLeft') || pressedKeys.has('ShiftRight');
-      const hasAltGr = pressedKeys.has('AltRight');
+      // AltGr is disabled - ignore it completely
+      // const hasAltGr = pressedKeys.has('AltRight');
 
-      if (hasShift && hasAltGr) {
-        return 'altgr-shift';
-      }
-      if (hasAltGr) {
-        return 'altgr';
-      }
+      // if (hasShift && hasAltGr) {
+      //   return 'altgr-shift';
+      // }
+      // if (hasAltGr) {
+      //   return 'altgr';
+      // }
       if (hasShift) {
         return 'shift';
       }
@@ -317,6 +319,7 @@ export function useKeyboardMapper() {
 
     /**
      * Find which key(s) and modifier state(s) produce a given character
+     * NOTE: AltGr and AltGr+Shift are disabled, so only returns normal and shift
      */
     findKeysForCharacter(
       character: string
@@ -332,6 +335,7 @@ export function useKeyboardMapper() {
       }> = [];
 
       for (const keyMapping of keyMap.values()) {
+        // Only check normal and shift (AltGr is disabled)
         if (keyMapping.normal === character) {
           results.push({
             key: keyMapping.key,
@@ -346,20 +350,7 @@ export function useKeyboardMapper() {
             keyMapping,
           });
         }
-        if (keyMapping.altgr === character) {
-          results.push({
-            key: keyMapping.key,
-            modifierState: 'altgr',
-            keyMapping,
-          });
-        }
-        if (keyMapping.altgrShift === character) {
-          results.push({
-            key: keyMapping.key,
-            modifierState: 'altgr-shift',
-            keyMapping,
-          });
-        }
+        // AltGr and AltGr+Shift are disabled - don't include them
       }
 
       return results;

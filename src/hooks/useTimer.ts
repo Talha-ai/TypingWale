@@ -17,10 +17,10 @@ interface UseTimerOptions {
 }
 
 interface UseTimerReturn {
-  /** Current elapsed time in seconds */
+  /** Current elapsed time in milliseconds */
   elapsed: number;
 
-  /** Remaining time in seconds (if duration is set) */
+  /** Remaining time in milliseconds (if duration is set) */
   remaining: number;
 
   /** Whether timer is currently running */
@@ -57,7 +57,7 @@ export function useTimer(options: UseTimerOptions = {}): UseTimerReturn {
   /**
    * Calculate remaining time (for countdown mode)
    */
-  const remaining = duration ? Math.max(0, duration - elapsed) : 0;
+  const remaining = duration ? Math.max(0, duration * 1000 - elapsed) : 0;
 
   /**
    * Update elapsed time
@@ -66,12 +66,12 @@ export function useTimer(options: UseTimerOptions = {}): UseTimerReturn {
     if (!startTimeRef.current) return;
 
     const now = Date.now();
-    const newElapsed = (now - startTimeRef.current + pausedTimeRef.current) / 1000;
+    const newElapsed = now - startTimeRef.current + pausedTimeRef.current;
 
     setElapsed(newElapsed);
 
-    // Check if duration is reached
-    if (duration && newElapsed >= duration && !completedRef.current) {
+    // Check if duration is reached (duration is in seconds, newElapsed is in ms)
+    if (duration && newElapsed >= duration * 1000 && !completedRef.current) {
       completedRef.current = true;
       setIsRunning(false);
 

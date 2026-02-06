@@ -17,16 +17,16 @@ interface KeyProps {
 }
 
 const FINGER_COLORS = [
-  'bg-pink-400/80', // 0: Left Pinky
-  'bg-red-400/80', // 1: Left Ring
-  'bg-orange-400/80', // 2: Left Middle
-  'bg-yellow-400/80', // 3: Left Index
-  'bg-green-400/80', // 4: Right Index
-  'bg-teal-400/80', // 5: Right Middle
-  'bg-blue-400/80', // 6: Right Ring
-  'bg-purple-400/80', // 7: Right Pinky
-  'bg-gray-400/80', // 8: Left Thumb
-  'bg-gray-400/80', // 9: Right Thumb
+  'bg-pink-400/30 dark:bg-pink-400/20', // 0: Left Pinky
+  'bg-red-400/30 dark:bg-red-400/20', // 1: Left Ring
+  'bg-orange-400/30 dark:bg-orange-400/20', // 2: Left Middle
+  'bg-yellow-400/30 dark:bg-yellow-400/20', // 3: Left Index
+  'bg-green-400/30 dark:bg-green-400/20', // 4: Right Index
+  'bg-teal-400/30 dark:bg-teal-400/20', // 5: Right Middle
+  'bg-blue-400/30 dark:bg-blue-400/20', // 6: Right Ring
+  'bg-purple-400/30 dark:bg-purple-400/20', // 7: Right Pinky
+  'bg-gray-400/30 dark:bg-gray-400/20', // 8: Left Thumb
+  'bg-gray-400/30 dark:bg-gray-400/20', // 9: Right Thumb
 ] as const;
 
 export function Key({
@@ -60,13 +60,15 @@ export function Key({
       className={cn(
         'relative flex items-center justify-center',
         'h-11 rounded-md',
-        'border border-gray-300 dark:border-gray-600',
+        'border-2',
         'select-none cursor-default',
-        'shadow-sm',
+        'shadow-sm transition-all duration-200',
 
         showFingerGuide ? fingerColor : 'bg-white dark:bg-gray-700',
 
-        isNext && 'ring-2 ring-black dark:ring-white',
+        isNext
+          ? 'border-primary ring-2 ring-primary/50 scale-105'
+          : 'border-gray-300 dark:border-gray-600',
         isPressed && 'scale-95'
       )}
     >
@@ -75,8 +77,13 @@ export function Key({
         {englishLabel}
       </div>
 
-      {/* Hindi character - center, large */}
-      <div className="font-hindi text-2xl font-semibold text-gray-900 dark:text-gray-100">
+      {/* Hindi character - center, large, bold when selected */}
+      <div className={cn(
+        "font-hindi text-2xl",
+        isNext
+          ? "font-extrabold text-primary scale-110"
+          : "font-semibold text-gray-900 dark:text-gray-100"
+      )}>
         {displayChar || '\u00A0'}
       </div>
     </div>
